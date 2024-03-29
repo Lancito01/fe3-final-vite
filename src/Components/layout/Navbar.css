@@ -1,0 +1,11 @@
+nav {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: large;
+    padding: 15px;
+    width: 100%;
+    background: rgb(201, 201, 201);
+}

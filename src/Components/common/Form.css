@@ -1,0 +1,18 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    margin: 0 auto;
+}
+
+form * {
+    margin: 2px;
+}
+
+.formError {
+    color: red
+}
+
+.formSuccess {
+    color: green;
+}
