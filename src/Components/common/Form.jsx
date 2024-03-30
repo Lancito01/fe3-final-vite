@@ -47,13 +47,13 @@ const Form = () => {
     <>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Name" />
-        {errors.name && <span className='formError'>Name must be over 2 characters long</span>}
+        {errors.name && <span className='formError'>Name can&apos;t be empty, and must be under 50 characters long.</span>}
         <input type="email" name="email" placeholder="Email" />
-        {errors.email && <span className='formError'>Please enter a valid email address</span>}
+        {errors.email && <span className='formError'>Please enter a valid email address.</span>}
         <textarea name="message" placeholder="Message"></textarea>
+        {errors.message && <span className='formError'>Message can&apos;t be empty, and under 1024 characters long.</span>}
         <button type="submit">Submit</button>
-        {errors.message && <span className='formError'>Message can&apos;t be empty, and under 1024 characters long</span>}
-        {!errors.name && !errors.email && formSubmitted && <p className='formSuccess'>Form submitted successfully</p>}
+        {!errors.name && !errors.email && formSubmitted && <p className='formSuccess'>Form submitted successfully.</p>}
       </form>
     </>
   )
