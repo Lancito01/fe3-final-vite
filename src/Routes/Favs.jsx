@@ -9,8 +9,10 @@ const Favs = () => {
   }, [])
 
   function updateFavsList() {
+    console.log("updating favs list")
     let favsStorage = JSON.parse(localStorage.getItem('favs'));
     setFavs(favsStorage);
+    console.log(favs)
   }
 
   function clearFavs() {
@@ -25,7 +27,8 @@ const Favs = () => {
       <div className="card-grid">
         {favs && favs.map((dentista) => {
           function removeFav() {
-            setFavs(favs.filter((favDentist) => favDentist.id !== dentista.id))
+            let result = favs.filter((dent) => dent.id != dentista.id)
+            localStorage.setItem('favs', JSON.stringify(result));
             updateFavsList()
           }
           return (
