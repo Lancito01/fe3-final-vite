@@ -7,7 +7,7 @@ const Favs = () => {
 
   useEffect(() => {
     updateFavsList();
-  }, [])
+  }, [favs])
 
   function updateFavsList() {
     let favsStorage = JSON.parse(localStorage.getItem('favs'));
@@ -29,7 +29,7 @@ const Favs = () => {
 
         {favs.map((dentista) => {
           return (
-            <Card dentist={dentista} favButton={false} key={dentista.id} />
+            <Card dentist={dentista} inFavsList={true} key={dentista.id} />
           )
         })}
 

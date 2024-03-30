@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 //! LIGHT & DARK THEME!!
-const Card = ({ dentist, favButton = true }) => {
+const Card = ({ dentist, inFavsList = false }) => {
 
     const addFav = () => {
         let favs = JSON.parse(localStorage.getItem("favs")) || [];
@@ -12,6 +12,13 @@ const Card = ({ dentist, favButton = true }) => {
         )) return;
 
         favs.push(dentist);
+        localStorage.setItem("favs", JSON.stringify(favs));
+    }
+
+    const removeFromFav = () => {
+        let favs = JSON.parse(localStorage.getItem("favs")) || [];
+
+        favs = favs.filter((favDentist) => favDentist.id !== dentist.id);
         localStorage.setItem("favs", JSON.stringify(favs));
     }
 
@@ -28,7 +35,8 @@ const Card = ({ dentist, favButton = true }) => {
                     {/*! Ademas deberan integrar la logica para guardar cada Card en el localStorage*/}
 
                 </Link >
-                {favButton && <button onClick={addFav} className="favButton">Add fav</button>}
+                {!inFavsList && <button onClick={addFav} className="favButton">Add fav</button>}
+                {inFavsList && <button onClick={removeFromFav} className="favButton">Remove from favs</button>}
             </div>
 
         </>

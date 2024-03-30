@@ -52,7 +52,7 @@ const Form = () => {
         {errors.email && <span className='formError'>Please enter a valid email address</span>}
         <textarea name="message" placeholder="Message"></textarea>
         <button type="submit">Submit</button>
-        {errors.message && <span className='formError'>Message must be over 2 characters, and under 1024 characters long</span>}
+        {errors.message && <span className='formError'>Message can&apos;t be empty, and under 1024 characters long</span>}
         {!errors.name && !errors.email && formSubmitted && <p className='formSuccess'>Form submitted successfully</p>}
       </form>
     </>
